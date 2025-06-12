@@ -7,6 +7,8 @@ services:
 
   wikibase:
     image: wikibase/wikibase:4
+    ports:
+      - 8080:80
     depends_on:
       mysql:
         condition: service_healthy
@@ -19,6 +21,7 @@ services:
       - ./config/Extensions.php:/var/www/html/LocalSettings.d/90_UserDefinedExtensions.php:z
       - wikibase-image-data:/var/www/html/images
       - quickstatements-data:/quickstatements/data
+      - ./config/reviewDashboard:/var/www/html/extensions/ReviewDashboard:z
     environment:
       MW_ADMIN_NAME: ${MW_ADMIN_NAME}
       MW_ADMIN_PASS: ${MW_ADMIN_PASS}
@@ -85,6 +88,8 @@ services:
   wdqs:
     image: wikibase/wdqs:2
     command: /runBlazegraph.sh
+    ports:
+      - "8081:9999"
     depends_on:
       wikibase:
         condition: service_healthy

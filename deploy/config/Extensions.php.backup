@@ -13,4 +13,4 @@
 //   wfLoadExtension( 'WikibaseLexeme' );
 // here in Wikibase Suite Deploy you need to put
 //   wfLoadExtension( 'extensions/WikibaseLexeme' );
-wfLoadExtension( 'ReviewDashboard' );
+wfLoadExtension( 'extensions/ReviewDashboard' );

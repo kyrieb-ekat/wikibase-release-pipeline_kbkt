@@ -1,0 +1,19 @@
+services:
+  wikibase:
+    platform: linux/amd64
+  wikibase-jobrunner:
+    platform: linux/amd64
+  mysql:
+    platform: linux/amd64
+  wdqs:
+    platform: linux/amd64
+  wdqs-frontend:
+    platform: linux/amd64
+  wdqs-updater:
+    platform: linux/amd64
+  elasticsearch:
+    platform: linux/amd64
+  quickstatements:
+    platform: linux/amd64
+  traefik:
+    platform: linux/amd64

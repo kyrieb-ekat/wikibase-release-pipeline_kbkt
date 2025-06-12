@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Your Name"
+		]
+	},
+	"reviewdashboard-desc": "Special page for reviewing items needing review",
+	"reviewdashboard-special-page": "Review Dashboard",
+	"reviewdashboard-title": "Items Needing Review",
+	"reviewdashboard-description": "Review and approve items with 'needs review' status",
+	"reviewdashboard-config-title": "Configuration",
+	"reviewdashboard-sparql-endpoint": "SPARQL Endpoint URL:",
+	"reviewdashboard-wikibase-url": "Wikibase Base URL:",
+	"reviewdashboard-load-items": "Load Items Needing Review",
+	"reviewdashboard-loading": "Loading...",
+	"reviewdashboard-results-title": "Items Requiring Review",
+	"reviewdashboard-mark-reviewed": "Mark as Reviewed",
+	"reviewdashboard-cancel": "Cancel",
+	"reviewdashboard-confirm-review": "Mark as Reviewed",
+	"reviewdashboard-error-no-endpoint": "Please enter your SPARQL endpoint URL",
+	"reviewdashboard-success": "Items loaded successfully",
+	"reviewdashboard-error": "Error loading items"
+}
