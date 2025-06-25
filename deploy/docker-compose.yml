@@ -7,8 +7,8 @@ services:
 
   wikibase:
     image: wikibase/wikibase:4
-    ports:
-      - 8080:80
+    #ports:
+    #  - 8080:80
     depends_on:
       mysql:
         condition: service_healthy
@@ -21,6 +21,7 @@ services:
       - ./config/Extensions.php:/var/www/html/LocalSettings.d/90_UserDefinedExtensions.php:z
       - wikibase-image-data:/var/www/html/images
       - quickstatements-data:/quickstatements/data
+      #- ./config/elasticsearch.php:/var/www/html/LocalSettings.d/02_Elasticsearch.php:z  # Add this line      - quickstatements-data:/quickstatements/data
       - ./config/reviewDashboard:/var/www/html/extensions/ReviewDashboard:z
     environment:
       MW_ADMIN_NAME: ${MW_ADMIN_NAME}
@@ -38,6 +39,14 @@ services:
       test: curl --silent --fail localhost/wiki/Main_Page
       interval: 10s
       start_period: 5m
+
+    labels:
+      # Traefik configuration for the wikibase service
+      - "traefik.enable=true"
+      - "traefik.http.routers.wikibase-router.rule=Host(`${WIKIBASE_PUBLIC_HOST}`)"
+      - "traefik.http.routers.wikibase-router.entrypoints=websecure" # Assuming you want HTTPS
+      - "traefik.http.routers.wikibase-router.tls.certresolver=letsencrypt" # Matches your Traefik config
+      - "traefik.http.services.wikibase-service.loadbalancer.server.port=80" # The internal port of the wikibase container (which is 80)
 
   wikibase-jobrunner:
     image: wikibase/wikibase:4
@@ -137,6 +146,14 @@ services:
       test: curl --silent --fail localhost
       interval: 10s
       start_period: 2m
+    labels:
+      # Traefik configuration for the wdqs-frontend service
+      - "traefik.enable=true"
+      - "traefik.http.routers.wdqs-frontend-router.rule=Host(`${WDQS_PUBLIC_HOST}`)"
+      - "traefik.http.routers.wdqs-frontend-router.entrypoints=websecure"
+      - "traefik.http.routers.wdqs-frontend-router.tls.certresolver=letsencrypt"
+      - "traefik.http.services.wdqs-frontend-service.loadbalancer.server.port=80" # The internal port of the wdqs-frontend container (which is 80)
+
 
   quickstatements:
     image: wikibase/quickstatements:1

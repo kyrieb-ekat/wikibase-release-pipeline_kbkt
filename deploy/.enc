@@ -1,0 +1,13 @@
+# Public hostname configuration - YOUR PREFERRED HOSTS
+WIKIBASE_PUBLIC_HOST=wikibase.local
+WDQS_PUBLIC_HOST=query.wikibase.local
+
+# MediaWiki / Wikibase admin (what you'll login with on the web)
+MW_ADMIN_NAME=admin
+MW_ADMIN_EMAIL=admin@wikibase.local
+MW_ADMIN_PASS=admin123456789
+
+# Database credentials (internal - containers use these)
+DB_NAME=wikibase
+DB_USER=wikiuser
+DB_PASS=wikibase123456789

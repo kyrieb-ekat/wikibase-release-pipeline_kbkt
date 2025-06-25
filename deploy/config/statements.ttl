@@ -1,0 +1,5 @@
+@prefix wd: <https://wikibase.local/entity/> .
+@prefix wdt: <https://wikibase.local/prop/direct/> .
+
+wd:Q3 wdt:P2 "Musical Instrument" .
+wd:Q4 wdt:P2 "Musical Instrument" .

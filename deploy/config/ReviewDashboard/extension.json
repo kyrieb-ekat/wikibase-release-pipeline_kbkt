@@ -1,19 +1,19 @@
 {
     "name": "ReviewDashboard",
     "version": "1.0.0",
-    "author": "Your Name",
+    "author": "kyrie",
     "url": "",
     "descriptionmsg": "reviewdashboard-desc",
     "license-name": "GPL-2.0-or-later",
     "type": "specialpage",
     "SpecialPages": {
-        "ReviewDashboard": "MediaWiki\\Extension\\ReviewDashboard\\SpecialReviewDashboard"
+        "ReviewDashboard": "SpecialReviewDashboard"
     },
     "MessagesDirs": {
         "ReviewDashboard": ["i18n"]
     },
-    "AutoloadNamespaces": {
-        "MediaWiki\\Extension\\ReviewDashboard\\": "src/"
+    "AutoloadClasses": {
+        "SpecialReviewDashboard": "src/SpecialReviewDashboard.php"
     },
     "ResourceModules": {
         "ext.reviewdashboard": {
@@ -23,6 +23,10 @@
                 "reviewdashboard-loading",
                 "reviewdashboard-error",
                 "reviewdashboard-success"
+            ],
+            "dependencies": [
+                "jquery",
+                "mediawiki.api"
             ]
         }
     },
@@ -30,5 +34,24 @@
         "localBasePath": "modules",
         "remoteExtPath": "ReviewDashboard/modules"
     },
+    "GroupPermissions": {
+        "junior-reviewer": {
+            "reviewdashboard-access": true
+        },
+        "senior-reviewer": {
+            "reviewdashboard-access": true,
+            "reviewdashboard-senior": true
+        },
+        "review-admin": {
+            "reviewdashboard-access": true,
+            "reviewdashboard-senior": true,
+            "reviewdashboard-admin": true
+        }
+    },
+    "AvailableRights": [
+        "reviewdashboard-access",
+        "reviewdashboard-senior",
+        "reviewdashboard-admin"
+    ],
     "manifest_version": 2
 }
