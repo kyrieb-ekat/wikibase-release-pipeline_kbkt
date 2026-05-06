@@ -15,7 +15,7 @@
 		"@wmde/eslint-config-wikimedia-typescript": "0.2.9",
 		"any-eslint-parser": "^1.0.1",
 		"async-wait-until": "^2.0.12",
-		"axios": "^1.7.3",
+		"axios": "^1.15.2",
 		"chalk": "^5.3.0",
 		"cheerio": "^1.0.0-rc.12",
 		"dotenv": "^16.4.5",
